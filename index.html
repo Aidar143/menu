@@ -6,17 +6,96 @@
 <title>Cosmos Lounge — Меню</title>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ======= Стили остаются без изменений ======= */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#080810;--text:#f0eeff;--muted:rgba(240,238,255,0.42);--row:#0f0f1a;--row-alt:#13131f;--border:rgba(255,255,255,0.06);--tea:#1ec971;--soft:#3aacf7;--bar:#e9a43f;--hookah:#b96dff;--promo:#f04f4f;}
+:root{
+--bg:#080810;
+--text:#f0eeff;
+--muted:rgba(240,238,255,0.42);
+--row:#0f0f1a;
+--row-alt:#13131f;
+--border:rgba(255,255,255,0.06);
+--tea:#1ec971;
+--soft:#3aacf7;
+--bar:#e9a43f;
+--hookah:#b96dff;
+--promo:#f04f4f;
+}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;line-height:1.4;min-height:100vh;overflow-x:hidden}
-/* ... (весь твой CSS из оригинала) ... */
+/* HERO */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 25% 35%,rgba(185,109,255,.13) 0%,transparent 65%),radial-gradient(ellipse 45% 40% at 75% 65%,rgba(30,201,113,.10) 0%,transparent 65%),radial-gradient(ellipse 35% 50% at 50% 15%,rgba(58,172,247,.08) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(1px 1px at 8% 12%,rgba(255,255,255,.7) 0%,transparent 100%),radial-gradient(1px 1px at 22% 68%,rgba(255,255,255,.45) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 48% 30%,rgba(255,255,255,.6) 0%,transparent 100%),radial-gradient(1px 1px at 71% 12%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 86% 58%,rgba(255,255,255,.5) 0%,transparent 100%),radial-gradient(1px 1px at 37% 85%,rgba(255,255,255,.35) 0%,transparent 100%),radial-gradient(1px 1px at 60% 75%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 92% 25%,rgba(255,255,255,.55) 0%,transparent 100%),radial-gradient(1px 1px at 4% 45%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 78% 90%,rgba(255,255,255,.5) 0%,transparent 100%);pointer-events:none}
+.emblem{position:relative;width:100px;height:100px;margin-bottom:26px;z-index:1}
+.emblem svg{width:100%;height:100%;animation:spin 20s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.emblem-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:50%;background:radial-gradient(circle,#fff 0%,rgba(185,109,255,.9) 55%,transparent 100%);box-shadow:0 0 16px 5px rgba(185,109,255,.55),0 0 45px 16px rgba(108,80,200,.22)}
+.hero-title{font-family:'Unbounded',sans-serif;font-size:clamp(30px,9vw,66px);font-weight:300;letter-spacing:.09em;text-transform:uppercase;line-height:1.05;margin-bottom:6px;z-index:1;position:relative;background:linear-gradient(115deg,#fff 0%,rgba(185,109,255,.9) 55%,rgba(30,201,113,.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);margin-bottom:40px;z-index:1;position:relative}
+.hero-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;z-index:1;position:relative}
+.hero-nav a{text-decoration:none;padding:9px 18px;border-radius:40px;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--border);color:var(--muted);background:rgba(255,255,255,.03);transition:all .25s}
+.hero-nav a:hover{color:var(--text);background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15)}
+/* SECTION */
+.sec{position:relative;padding:64px 0 20px;overflow:hidden}
+.sec-glow{position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:480px;height:260px;border-radius:50%;pointer-events:none;filter:blur(75px);opacity:.13}
+.g-tea{background:var(--tea)}.g-soft{background:var(--soft)}.g-bar{background:var(--bar)}.g-hookah{background:var(--hookah)}.g-promo{background:var(--promo)}
+.sec-head{text-align:center;padding:0 20px 28px;position:relative}
+.sec-ico{font-size:26px;display:block;margin-bottom:10px}
+.sec-ttl{font-family:'Unbounded',sans-serif;font-size:clamp(18px,5vw,32px);font-weight:300;letter-spacing:.13em;text-transform:uppercase;margin-bottom:8px}
+.c-tea{color:var(--tea)}.c-soft{color:var(--soft)}.c-bar{color:var(--bar)}.c-hookah{color:var(--hookah)}.c-promo{color:var(--promo)}
+.sec-rule{width:44px;height:2px;margin:0 auto;border-radius:2px;opacity:.45}
+.r-tea{background:var(--tea)}.r-soft{background:var(--soft)}.r-bar{background:var(--bar)}.r-hookah{background:var(--hookah)}.r-promo{background:var(--promo)}
+/* CATEGORY BAR */
+.cat{display:flex;align-items:center;padding:7px 16px;margin:16px 0 2px;font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.cat.ct{background:rgba(30,201,113,.14);border-left:3px solid rgba(30,201,113,.6)}
+.cat.cs{background:rgba(58,172,247,.14);border-left:3px solid rgba(58,172,247,.6)}
+.cat.cb{background:rgba(233,164,63,.14);border-left:3px solid rgba(233,164,63,.6)}
+.cat.ch{background:rgba(185,109,255,.14);border-left:3px solid rgba(185,109,255,.6)}
+.cat.cp{background:rgba(240,79,79,.14);border-left:3px solid rgba(240,79,79,.6)}
+/* ROW */
+.row{display:flex;align-items:center;padding:0 14px;min-height:44px;border-bottom:1px solid var(--border);transition:background .18s;cursor:default}
+.row:nth-child(odd){background:var(--row)}
+.row:nth-child(even){background:var(--row-alt)}
+.row:hover{background:rgba(255,255,255,.05)}
+.row-name{flex:1;min-width:0;font-size:13px;font-weight:500;letter-spacing:.02em;padding-right:10px}
+.row-sub{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:10px;flex-shrink:0;max-width:160px}
+.row-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
+/* TAGS */
+.tag{font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:2px 7px;border-radius:20px}
+.t-hit{background:rgba(233,164,63,.15);color:var(--bar);border:1px solid rgba(233,164,63,.3)}
+.t-new{background:rgba(185,109,255,.15);color:var(--hookah);border:1px solid rgba(185,109,255,.3)}
+.t-x3{background:rgba(240,79,79,.15);color:var(--promo);border:1px solid rgba(240,79,79,.3)}
+/* PRICE */
+.price{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;padding:5px 11px;border-radius:20px;white-space:nowrap;letter-spacing:.01em}
+.pt{background:rgba(30,201,113,.15);color:var(--tea);border:1px solid rgba(30,201,113,.28)}
+.ps{background:rgba(58,172,247,.15);color:var(--soft);border:1px solid rgba(58,172,247,.28)}
+.pb{background:rgba(233,164,63,.15);color:var(--bar);border:1px solid rgba(233,164,63,.28)}
+.ph{background:rgba(185,109,255,.15);color:var(--hookah);border:1px solid rgba(185,109,255,.28)}
+.pp{background:rgba(240,79,79,.15);color:var(--promo);border:1px solid rgba(240,79,79,.28)}
+/* PROMO CARDS */
+.promo-day{margin:2px 0;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--row)}
+.promo-day:nth-child(even){background:var(--row-alt)}
+.promo-day:hover{background:rgba(255,255,255,.05)}
+.promo-dayname{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--promo);margin-bottom:4px}
+.promo-desc{font-size:13px;font-weight:500;color:var(--text);line-height:1.5}
+.promo-price{font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;color:var(--promo);margin-top:3px}
+/* STICKY NAV */
+.snav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:3px;padding:5px 7px;background:rgba(8,8,16,.92);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.1);border-radius:50px;z-index:999;box-shadow:0 6px 28px rgba(0,0,0,.65)}
+.snav a{text-decoration:none;padding:7px 12px;border-radius:30px;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:all .2s;white-space:nowrap}
+.snav a:hover,.snav a.act{color:var(--text);background:rgba(255,255,255,.1)}
+/* FOOTER */
+.footer{text-align:center;padding:46px 20px 80px}
+.footer::before{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin-bottom:32px}
+.footer-name{font-family:'Unbounded',sans-serif;font-size:18px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;background:linear-gradient(120deg,rgba(185,109,255,.7),rgba(30,201,113,.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:5px}
+.footer-tag{font-size:9px;letter-spacing:.3em;color:var(--muted);text-transform:uppercase}
+@media(max-width:400px){
+.row-sub{display:none}
+.snav a{padding:7px 9px;font-size:8px}
+}
 </style>
 </head>
 <body>
 
-<!-- ======= HERO ======= -->
 <section class="hero" id="top">
 <div class="emblem">
 <svg viewBox="0 0 100 100" fill="none">
@@ -40,16 +119,153 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 </nav>
 </section>
 
-<!-- ======= SECTIONS (TEA, SOFT, BAR, HOOKAH, PROMO) ======= -->
-<!-- Оставляем твой HTML с классами row, price, promo-desc без изменений -->
+<section class="sec" id="tea">
+<div class="sec-glow g-tea"></div>
+<div class="sec-head">
+<span class="sec-ico c-tea">✦</span>
+<h2 class="sec-ttl c-tea">Чайная карта</h2>
+<div class="sec-rule r-tea"></div>
+</div>
+<div class="cat ct">Классический чай</div>
+<div class="row"><span class="row-name">Классический чай в ассортименте</span><div class="row-right"><span class="price pt">350 ₽</span></div></div>
+<div class="cat ct">Авторский чай</div>
+<div class="row"><span class="row-name">Авторский чай облепиховый</span><div class="row-right"><span class="price pt">400 ₽</span></div></div>
+<div class="row"><span class="row-name">Авторский чай клюквенный</span><div class="row-right"><span class="price pt">400 ₽</span></div></div>
+</section>
 
-<!-- ======= FOOTER ======= -->
+<section class="sec" id="soft">
+<div class="sec-glow g-soft"></div>
+<div class="sec-head">
+<span class="sec-ico c-soft">◈</span>
+<h2 class="sec-ttl c-soft">Безалкогольные напитки</h2>
+<div class="sec-rule r-soft"></div>
+</div>
+<div class="cat cs">Лимонады</div>
+<div class="row"><span class="row-name">Лимонады в ассортименте</span><span class="row-sub">1 литр</span><div class="row-right"><span class="price ps">350 ₽</span></div></div>
+
+<div class="cat cs">Снеки</div>
+<div class="row"><span class="row-name">Чипсы рифлёные</span><div class="row-right"><span class="price ps">290 ₽</span></div></div>
+<div class="row"><span class="row-name">Чипсы</span><span class="row-sub">125 г</span><div class="row-right"><span class="price ps">250 ₽</span></div></div>
+<div class="row"><span class="row-name">Чипсы</span><span class="row-sub">90 г</span><div class="row-right"><span class="price ps">200 ₽</span></div></div>
+<div class="row"><span class="row-name">Гренки</span><div class="row-right"><span class="price ps">60 ₽</span></div></div>
+<div class="row"><span class="row-name">Арахис</span><div class="row-right"><span class="price ps">100 ₽</span></div></div>
+<div class="row"><span class="row-name">Кальмар</span><div class="row-right"><span class="price ps">250 ₽</span></div></div>
+
+<div class="cat cs">Горячее</div>
+<div class="row"><span class="row-name">Картошка фри</span><div class="row-right"><span class="price ps">450 ₽</span></div></div>
+<div class="row"><span class="row-name">Картошка по-деревенски</span><div class="row-right"><span class="price ps">450 ₽</span></div></div>
+<div class="row"><span class="row-name">Наггетсы</span><div class="row-right"><span class="price ps">450 ₽</span></div></div>
+
+<div class="cat cs">Прочее</div>
+<div class="row"><span class="row-name">Пиво</span><div class="row-right"><span class="price ps">200 ₽</span></div></div>
+<div class="row"><span class="row-name">Сок в ассортименте</span><div class="row-right"><span class="price ps">180 ₽</span></div></div>
+<div class="row"><span class="row-name">Энергетик в ассортименте</span><div class="row-right"><span class="price ps">170 ₽</span></div></div>
+<div class="row"><span class="row-name">Газированные напитки в ассортименте</span><div class="row-right"><span class="price ps">180 ₽</span></div></div>
+</section>
+
+<section class="sec" id="bar">
+<div class="sec-glow g-bar"></div>
+<div class="sec-head">
+<span class="sec-ico c-bar">◆</span>
+<h2 class="sec-ttl c-bar">Карта алкогольного бара</h2>
+<div class="sec-rule r-bar"></div>
+</div>
+<div class="cat cb">Алкогольные коктейли</div>
+<div class="row"><span class="row-name">Кловер клаб</span><div class="row-right"><span class="price pb">350 ₽</span></div></div>
+<div class="row"><span class="row-name">Алкогольные коктейли</span><div class="row-right"><span class="price pb">350 ₽</span></div></div>
+<div class="row"><span class="row-name">Апероль шпритц</span><div class="row-right"><span class="price pb">350 ₽</span></div></div>
+<div class="row"><span class="row-name">Лонг айленд</span><div class="row-right"><span class="price pb">500 ₽</span></div></div>
+<div class="row"><span class="row-name">Негroni</span><div class="row-right"><span class="price pb">450 ₽</span></div></div>
+<div class="row"><span class="row-name">Мартини-Фиеро тоник</span><div class="row-right"><span class="price pb">350 ₽</span></div></div>
+<div class="row"><span class="row-name">Джин тоник</span><div class="row-right"><span class="price pb">350 ₽</span></div></div>
+<div class="row"><span class="row-name">Мохито</span><div class="row-right"><span class="price pb">350 ₽</span></div></div>
+<div class="row"><span class="row-name">Палома</span><div class="row-right"><span class="price pb">350 ₽</span></div></div>
+<div class="row"><span class="row-name">Гимлет</span><div class="row-right"><span class="price pb">350 ₽</span></div></div>
+<div class="row"><span class="row-name">Мартини-Фиеро тоник х3</span><div class="row-right"><span class="tag t-x3">×3</span><span class="price pb">900 ₽</span></div></div>
+<div class="row"><span class="row-name">Апероль шпритц х3</span><div class="row-right"><span class="tag t-x3">×3</span><span class="price pb">900 ₽</span></div></div>
+
+<div class="cat cb">Шоты</div>
+<div class="row"><span class="row-name">Шоты</span><div class="row-right"><span class="price pb">180 ₽</span></div></div>
+<div class="row"><span class="row-name">Б-52</span><div class="row-right"><span class="price pb">—</span></div></div>
+<div class="row"><span class="row-name">Крёстный отец</span><div class="row-right"><span class="price pb">—</span></div></div>
+<div class="row"><span class="row-name">Барби</span><div class="row-right"><span class="price pb">—</span></div></div>
+<div class="row"><span class="row-name">Хот шот</span><div class="row-right"><span class="price pb">—</span></div></div>
+
+<div class="cat cb">Настойки</div>
+<div class="row"><span class="row-name">Настойки</span><div class="row-right"><span class="price pb">160 ₽</span></div></div>
+<div class="row"><span class="row-name">Клюквенная</span><div class="row-right"><span class="price pb">—</span></div></div>
+<div class="row"><span class="row-name">Облепиховая</span><div class="row-right"><span class="price pb">—</span></div></div>
+<div class="row"><span class="row-name">Смородиновая</span><div class="row-right"><span class="price pb">—</span></div></div>
+<div class="row"><span class="row-name">Малиновая</span><div class="row-right"><span class="price pb">—</span></div></div>
+</section>
+
+<section class="sec" id="hookah">
+<div class="sec-glow g-hookah"></div>
+<div class="sec-head">
+<span class="sec-ico c-hookah">⬡</span>
+<h2 class="sec-ttl c-hookah">Кальян</h2>
+<div class="sec-rule r-hookah"></div>
+</div>
+<div class="cat ch">Форматы</div>
+<div class="row"><span class="row-name">Классический</span><div class="row-right"><span class="price ph">1 000 ₽</span></div></div>
+<div class="row"><span class="row-name">Крепкий</span><div class="row-right"><span class="price ph">1 100 ₽</span></div></div>
+<div class="row"><span class="row-name">Авторский</span><div class="row-right"><span class="price ph">1 200 ₽</span></div></div>
+<div class="row"><span class="row-name">Двойной (х2)</span><div class="row-right"><span class="price ph">1 800 ₽</span></div></div>
+</section>
+
+<section class="sec" id="promo">
+<div class="sec-glow g-promo"></div>
+<div class="sec-head">
+<span class="sec-ico c-promo">★</span>
+<h2 class="sec-ttl c-promo">Акции</h2>
+<div class="sec-rule r-promo"></div>
+</div>
+
+<div class="cat cp">Ежедневно · 20:00 – 00:00</div>
+<div class="promo-day">
+<div class="promo-desc">Кальян + чай — <span style="color:var(--promo);font-weight:700">1 000 ₽</span></div>
+<div class="promo-desc" style="margin-top:5px">Скидка на день рождения 10% (3 дня до и после события)</div>
+</div>
+
+<div class="cat cp">Понедельник</div>
+<div class="promo-day">
+<div class="promo-dayname">Понедельник</div>
+<div class="promo-desc">Кальян на лёгком табаке — <span style="color:var(--promo);font-weight:700">500 ₽</span></div>
+<div class="promo-desc">Алкогольные коктейли — <span style="color:var(--promo);font-weight:700">280 ₽</span></div>
+</div>
+
+<div class="cat cp">Вторник</div>
+<div class="promo-day">
+<div class="promo-dayname">Вторник</div>
+<div class="promo-desc">Литровая бутылка лимонада + кальян — <span style="color:var(--promo);font-weight:700">1 000 ₽</span></div>
+</div>
+
+<div class="cat cp">Среда</div>
+<div class="promo-day">
+<div class="promo-dayname">Среда</div>
+<div class="promo-desc">Шот в подарок при заказе кальяна</div>
+<div class="promo-desc">Компания от 4 человек — настойки в подарок</div>
+</div>
+
+<div class="cat cp">Четверг</div>
+<div class="promo-day">
+<div class="promo-dayname">Четверг</div>
+<div class="promo-desc">Авторский кальян — <span style="color:var(--promo);font-weight:700">1 000 ₽</span></div>
+<div class="promo-desc">Авторский чай + классический кальян — <span style="color:var(--promo);font-weight:700">1 200 ₽</span></div>
+</div>
+
+<div class="cat cp">Воскресенье</div>
+<div class="promo-day">
+<div class="promo-dayname">Воскресенье</div>
+<div class="promo-desc">Литр лимонада или чайник чая — в подарок к кальяну</div>
+</div>
+</section>
+
 <footer class="footer">
 <div class="footer-name">Cosmos Lounge</div>
-<div class="footer-tag">Меню · 2026</div>
+<div class="footer-tag">Меню · 2025</div>
 </footer>
 
-<!-- ======= STICKY NAV ======= -->
 <nav class="snav">
 <a href="#tea">Чай</a>
 <a href="#soft">Напитки</a>
@@ -58,13 +274,12 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 <a href="#promo">Акции</a>
 </nav>
 
-<!-- ======= NAV SCROLL SCRIPT ======= -->
 <script>
 const ids = ['tea','soft','bar','hookah','promo'];
 const links = document.querySelectorAll('.snav a');
 
 function updateNav() {
-const mid = window.scrollY + window.innerHeight / 3;
+const mid = window.scrollY + window.innerHeight / 2;
 let current = ids[0];
 for (let i = ids.length - 1; i >= 0; i--) {
 const el = document.getElementById(ids[i]);
@@ -83,56 +298,15 @@ links.forEach(a => {
 a.addEventListener('click', e => {
 e.preventDefault();
 const target = document.getElementById(a.getAttribute('href').slice(1));
-if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+if (target) {
+target.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
 });
 });
 
 window.addEventListener('scroll', updateNav, {passive: true});
 window.addEventListener('resize', updateNav);
 updateNav();
-</script>
-
-<!-- ======= DYNAMIC PRICES SCRIPT ======= -->
-<script>
-async function updatePrices() {
-try {
-const res = await fetch('prices.json');
-const data = await res.json();
-
-// Обновляем цены в row
-document.querySelectorAll('.row').forEach(row => {
-const nameEl = row.querySelector('.row-name');
-const priceEl = row.querySelector('.price');
-if (!nameEl || !priceEl) return;
-
-const section = row.closest('.sec');
-if (!section) return;
-const catId = section.id;
-
-const newPrice = data[catId]?.[nameEl.textContent.trim()];
-if (newPrice !== undefined) priceEl.textContent = newPrice + ' ₽';
-});
-
-// Обновляем акции
-document.querySelectorAll('#promo .promo-desc').forEach(desc => {
-const text = desc.textContent;
-for (const [key, value] of Object.entries(data.promo)) {
-if (text.includes(key)) {
-desc.innerHTML = desc.innerHTML.replace(/(\d+\s?₽)/, value + ' ₽');
-}
-}
-});
-
-} catch (e) {
-console.error('Не удалось загрузить цены:', e);
-}
-}
-
-// Сразу при загрузке страницы
-updatePrices();
-
-// Можно обновлять каждые 30 секунд
-setInterval(updatePrices, 30000);
 </script>
 
 </body>
